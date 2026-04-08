@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RSOUSA TECH | The Obsidian Forge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#221b00",
+                    "on-primary-container": "#541100",
+                    "background": "#050505",
+                    "on-tertiary": "#3a3000",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "inverse-primary": "#b12d00",
+                    "tertiary": "#e9c400",
+                    "secondary": "#ffb77d",
+                    "on-tertiary-container": "#4c3f00",
+                    "on-secondary": "#4d2600",
+                    "on-primary-fixed-variant": "#872000",
+                    "on-surface-variant": "#e7bdb2",
+                    "surface-container-highest": "#353534",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "error-container": "#93000a",
+                    "surface-tint": "#ffb5a0",
+                    "inverse-on-surface": "#313030",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container": "#201f1f",
+                    "surface": "#131313",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#ffb5a0",
+                    "primary": "#ffb5a0",
+                    "on-secondary-fixed": "#2f1500",
+                    "surface-bright": "#3a3939",
+                    "primary-container": "#ff5625",
+                    "on-background": "#e5e2e1",
+                    "tertiary-container": "#c9a900",
+                    "on-surface": "#e5e2e1",
+                    "surface-container-high": "#2a2a2a",
+                    "on-secondary-container": "#603100",
+                    "on-primary": "#601400",
+                    "on-error-container": "#ffdad6",
+                    "surface-dim": "#131313",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#ffb77d",
+                    "outline-variant": "#5d4038",
+                    "on-primary-fixed": "#3b0900",
+                    "primary-fixed": "#ffdbd1",
+                    "inverse-surface": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "secondary-container": "#fd8b00",
+                    "secondary-fixed": "#ffdcc3",
+                    "surface-variant": "#353534",
+                    "outline": "#ad887e",
+                    "tertiary-fixed": "#ffe16d",
+                    "surface-container-lowest": "#0e0e0e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .cyber-gradient-text {
+            background: linear-gradient(135deg, #00F0FF 0%, #0047FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textShine 5s linear infinite;
+        }
+        .cyber-bg {
+            background: linear-gradient(135deg, #00F0FF 0%, #0047FF 100%);
+        }
+        .cyber-glow {
+            box-shadow: 0 0 64px rgba(0, 240, 255, 0.1);
+        }
+        .glass-shell {
+            backdrop-filter: blur(20px);
+            background: rgba(14, 14, 14, 0.6);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-cyan-500/30 selection:text-cyan-100">
+    <!-- Cursor Cyber & Rastro Elétrico (No topo para evitar herança de transform) -->
+    <div id="custom-cursor"></div>
+    <canvas id="cursor-canvas"></canvas>
+
+    <!-- Background Cinematic Noise -->
+    <div class="fixed inset-0 pointer-events-none z-50 opacity-[0.03] mix-blend-overlay bg-noise"></div>
+
+<nav class="fixed left-6 top-1/2 -translate-y-1/2 z-50 w-16">
+    <div class="relative flex flex-col items-center gap-12 py-4 w-full">
+        <!-- Connecting Line background -->
+        <div class="absolute inset-y-8 left-1/2 -ml-[1px] w-[2px] bg-cyan-900/30 -z-10"></div>
+        
+        <!-- Node 1 -->
+        <a href="#hero" class="relative items-center group/item flex w-full justify-center">
+            <div class="w-12 h-12 rounded-full glass-shell border border-white/10 flex flex-col justify-center items-center text-slate-400 group-hover/item:text-cyan-400 group-hover/item:border-cyan-400/50 group-hover/item:bg-cyan-900/20 transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-10 shrink-0">
+                <span class="material-symbols-outlined text-[20px]">home</span>
+            </div>
+            <span class="font-headline text-sm tracking-widest uppercase opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 whitespace-nowrap absolute left-16 text-cyan-100 pointer-events-none drop-shadow-[0_0_10px_rgba(0,240,255,0.5)]">INÍCIO</span>
+        </a>
+        
+        <!-- Node 2 -->
+        <a href="#pinned-projects-section" class="relative items-center group/item flex w-full justify-center">
+            <div class="w-12 h-12 rounded-full glass-shell border border-white/10 flex flex-col justify-center items-center text-slate-400 group-hover/item:text-cyan-400 group-hover/item:border-cyan-400/50 group-hover/item:bg-cyan-900/20 transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-10 shrink-0">
+                <span class="material-symbols-outlined text-[20px]">grid_view</span>
+            </div>
+            <span class="font-headline text-sm tracking-widest uppercase opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 whitespace-nowrap absolute left-16 text-cyan-100 pointer-events-none drop-shadow-[0_0_10px_rgba(0,240,255,0.5)]">PROJETOS</span>
+        </a>
+
+        <!-- Node 3 -->
+        <a href="#horizontal-stack-section" class="relative items-center group/item flex w-full justify-center">
+            <div class="w-12 h-12 rounded-full glass-shell border border-white/10 flex flex-col justify-center items-center text-slate-400 group-hover/item:text-cyan-400 group-hover/item:border-cyan-400/50 group-hover/item:bg-cyan-900/20 transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-10 shrink-0">
+                <span class="material-symbols-outlined text-[20px]">developer_board</span>
+            </div>
+            <span class="font-headline text-sm tracking-widest uppercase opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 whitespace-nowrap absolute left-16 text-cyan-100 pointer-events-none drop-shadow-[0_0_10px_rgba(0,240,255,0.5)]">STACK</span>
+        </a>
+
+        <!-- Node 4 -->
+        <a href="#contact" class="relative items-center group/item flex w-full justify-center">
+            <div class="w-12 h-12 rounded-full glass-shell border border-white/10 flex flex-col justify-center items-center text-slate-400 group-hover/item:text-cyan-400 group-hover/item:border-cyan-400/50 group-hover/item:bg-cyan-900/20 transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-10 shrink-0">
+                <span class="material-symbols-outlined text-[20px]">terminal</span>
+            </div>
+            <span class="font-headline text-sm tracking-widest uppercase opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 whitespace-nowrap absolute left-16 text-cyan-100 pointer-events-none drop-shadow-[0_0_10px_rgba(0,240,255,0.5)]">CONTATO</span>
+        </a>
+    </div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section id="hero" class="min-h-screen flex flex-col justify-center px-8 lg:px-20 relative overflow-hidden">
+<video autoplay muted loop playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover z-0">
+    <source src="Hot_metal_takes_202604071427.mp4" type="video/mp4">
+</video>
+<div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/95 z-10"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-black from-25% via-black/60 to-transparent z-10"></div>
+<div class="relative z-20 grid grid-cols-12 gap-4" id="hero-content">
+<div class="col-span-12">
+<span class="font-label uppercase tracking-[0.4em] text-cyan-400 mb-6 block text-sm">SISTEMA INICIALIZADO / V.02.NEXUS</span>
+<h1 class="font-headline font-bold text-[11vw] leading-[0.8] tracking-[-0.06em] uppercase mb-8 flex flex-col">
+    <span class="animate-letters block">RSOUSA</span>
+    <span class="cyber-gradient-text animate-letters block">TECH</span>
+</h1>
+</div>
+<div class="col-span-12 lg:col-span-6 lg:col-start-7 lg:pl-10">
+<p class="text-xl lg:text-2xl font-body text-slate-300 leading-relaxed mb-10 border-l-4 border-cyan-500 pl-8">
+                        Arquitetura digital de alta performance. Forjamos o futuro através de precisão técnica e estética agressiva. Não criamos apenas código; construímos impérios digitais.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="cyber-bg text-black font-headline font-bold uppercase tracking-tighter px-10 py-4 text-lg hover:scale-105 hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] transition-all duration-300 rounded-sm">
+                            ENTRAR EM CONTATO
+                        </button>
+<button class="border border-cyan-500/30 text-white font-headline font-bold uppercase tracking-tighter px-10 py-4 text-lg hover:bg-cyan-500/10 transition-all duration-300 rounded-sm">
+                            VER PORTFÓLIO
+                        </button>
+</div>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-32 flex items-center gap-4">
+<div class="w-[1px] h-20 bg-gradient-to-b from-cyan-500 to-transparent"></div>
+<span class="font-label text-[10px] text-cyan-500 tracking-[0.2em] rotate-180 [writing-mode:vertical-lr]">SCROLL_PARA_EXPLORAR</span>
+</div>
+</section>
+<!-- Manifesto Section -->
+<section id="manifesto" class="py-40 bg-slate-900 px-8 lg:px-32 relative">
+<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
+<div class="lg:col-span-5 flex flex-col justify-center">
+<h2 class="font-headline font-bold text-6xl uppercase tracking-tighter mb-8 leading-none animate-letters">
+                        O MANIFESTO <br/><span class="text-cyan-400">RSOUSA TECH</span>
+</h2>
+<div class="w-20 h-2 bg-cyan-500 mb-8"></div>
+</div>
+<div class="lg:col-span-7 flex items-center">
+<p class="font-body text-2xl lg:text-3xl text-on-surface leading-tight text-right lg:text-left italic opacity-90 border-r-2 lg:border-r-0 lg:border-l-2 border-outline-variant/20 px-10 py-4">
+                        "Acreditamos que a tecnologia deve ser tão afiada quanto uma lâmina e tão robusta quanto o aço. No coração da RSousa Tech, cada pixel é uma decisão estratégica, cada linha de código é um compromisso com a excelência brutalista."
+                    </p>
+</div>
+</div>
+</section>
+<!-- Projects GSAP Pinned Slider -->
+<section id="pinned-projects-section" class="h-screen w-full relative z-10 overflow-hidden bg-surface-lowest flex lg:flex-row flex-col">
+    <div class="absolute inset-0 bg-noise opacity-5 pointer-events-none z-0"></div> <!-- Extra Ruido para base solid -->
+    <!-- Left Column (Fixed Info) -->
+    <div class="w-full lg:w-5/12 h-1/4 lg:h-full relative flex flex-col justify-end pb-8 lg:pb-0 lg:justify-center items-start px-8 lg:px-24 z-10 bg-black/40 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none border-b lg:border-b-0 lg:border-r border-white/5">
+        <h2 class="font-headline font-bold text-6xl lg:text-9xl uppercase tracking-tighter mix-blend-difference text-white opacity-5 absolute top-10 lg:top-20 left-8 lg:left-24">INDX_</h2>
+        
+        <div id="pin-text-container" class="relative w-full h-[150px] lg:h-[300px]">
+            <h3 class="text-white absolute top-1/2 -translate-y-1/2">Carregando Dados...</h3>
+            <!-- Texts injected here -->
+        </div>
+    </div>
+    
+    <!-- Right Column (Scrolling Images) -->
+    <div class="w-full lg:w-7/12 h-3/4 lg:h-full relative" id="pin-images-window">
+        <div id="pin-images-strip" class="w-full flex flex-col mx-auto absolute top-0 left-0">
+            <!-- Imagens empilhadas via JS -->
+        </div>
+    </div>
+</section>
+<!-- Horizontal Stack Services Pinned Slider -->
+<section id="horizontal-stack-section" class="h-screen w-full relative z-10 overflow-hidden bg-slate-950 flex flex-col justify-center border-t border-cyan-900/30">
+    <div class="absolute inset-0 bg-noise opacity-10 pointer-events-none z-0"></div>
+    
+    <div id="stack-track" class="flex flex-row w-max h-auto items-center px-[10vw] lg:px-[20vw] z-10">
+        
+        <!-- ITEM 1 -->
+        <div class="w-[90vw] lg:w-[75vw] h-[80vh] flex-shrink-0 flex flex-col justify-center relative px-8 lg:px-24 mx-4 lg:mx-8 border-l-2 border-white/5 border-dashed group">
+            <div class="absolute top-1/2 -translate-y-1/2 -left-10 font-headline font-bold text-[40vw] text-white opacity-[0.02] mix-blend-overlay pointer-events-none tracking-tighter">01</div>
+            <div class="relative z-10 max-w-5xl">
+                <h3 class="text-cyan-500 tracking-widest text-sm uppercase mb-6 font-label flex items-center gap-4">
+                    <span class="w-12 h-px bg-cyan-500/50"></span> Plataformas Escalonáveis
+                </h3>
+                <h2 class="font-headline font-bold text-5xl lg:text-8xl mb-8 text-white uppercase tracking-tighter leading-[0.9] group-hover:text-cyan-50 transition-colors animate-letters">Desenvolvimento<br/>WEB Wordpress</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 items-start">
+                    <p class="font-body text-xl lg:text-2xl text-slate-400 leading-relaxed italic opacity-90 border-l border-cyan-500/30 pl-6">
+                        Criação de sites corporativos robustos, com painéis gerenciais (CMS) inteiramente modelados. Onde a ferramenta ganha poder real.
+                    </p>
+                    <div class="lg:pl-10">
+                        <h4 class="text-white text-xs font-label uppercase tracking-widest opacity-30 mb-6">__Stack_Utilizada</h4>
+                        <ul class="text-slate-300 font-label uppercase tracking-widest space-y-4 text-sm">
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_10px_#00F0FF]"></span> PHP</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> WP REST API</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> Elementor Avançado</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> MySQL</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="w-[90vw] lg:w-[75vw] h-[80vh] flex-shrink-0 flex flex-col justify-center relative px-8 lg:px-24 mx-4 lg:mx-8 border-l-2 border-white/5 border-dashed group">
+            <div class="absolute top-1/2 -translate-y-1/2 -left-10 font-headline font-bold text-[40vw] text-white opacity-[0.02] mix-blend-overlay pointer-events-none tracking-tighter">02</div>
+            <div class="relative z-10 max-w-5xl">
+                <h3 class="text-cyan-500 tracking-widest text-sm uppercase mb-6 font-label flex items-center gap-4">
+                    <span class="w-12 h-px bg-cyan-500/50"></span> Experiências Imersivas
+                </h3>
+                <h2 class="font-headline font-bold text-5xl lg:text-8xl mb-8 text-white uppercase tracking-tighter leading-[0.9] group-hover:text-cyan-50 transition-colors animate-letters">Desenvolvimento<br/>WEB Premium</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 items-start">
+                    <p class="font-body text-xl lg:text-2xl text-slate-400 leading-relaxed italic opacity-90 border-l border-cyan-500/30 pl-6">
+                        Design system exclusivo, interfaces cirúrgicas, velocidade da luz e animações web de alto cacife.
+                    </p>
+                    <div class="lg:pl-10">
+                        <h4 class="text-white text-xs font-label uppercase tracking-widest opacity-30 mb-6">__Stack_Utilizada</h4>
+                        <ul class="text-slate-300 font-label uppercase tracking-widest space-y-4 text-sm">
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_10px_#00F0FF]"></span> Next.js</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> GSAP (ScrollTrigger)</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> Tailwind CSS</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> WebGL</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 3 -->
+        <div class="w-[90vw] lg:w-[75vw] h-[80vh] flex-shrink-0 flex flex-col justify-center relative px-8 lg:px-24 mx-4 lg:mx-8 border-l-2 border-white/5 border-dashed group">
+            <div class="absolute top-1/2 -translate-y-1/2 -left-10 font-headline font-bold text-[40vw] text-white opacity-[0.02] mix-blend-overlay pointer-events-none tracking-tighter">03</div>
+            <div class="relative z-10 max-w-5xl">
+                <h3 class="text-cyan-500 tracking-widest text-sm uppercase mb-6 font-label flex items-center gap-4">
+                    <span class="w-12 h-px bg-cyan-500/50"></span> Data-Driven Performance
+                </h3>
+                <h2 class="font-headline font-bold text-5xl lg:text-8xl mb-8 text-white uppercase tracking-tighter leading-[0.9] group-hover:text-cyan-50 transition-colors animate-letters">Traqueamento<br/>Avançado</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 items-start">
+                    <p class="font-body text-xl lg:text-2xl text-slate-400 leading-relaxed italic opacity-90 border-l border-cyan-500/30 pl-6">
+                        Engenharias de métricas para campanhas de conversão. Enxergar muito além do clique é seu trunfo no digital.
+                    </p>
+                    <div class="lg:pl-10">
+                        <h4 class="text-white text-xs font-label uppercase tracking-widest opacity-30 mb-6">__Stack_Utilizada</h4>
+                        <ul class="text-slate-300 font-label uppercase tracking-widest space-y-4 text-sm">
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_10px_#00F0FF]"></span> GTM</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> GA4</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> Meta Conversions API</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> BigQuery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 4 -->
+        <div class="w-[90vw] lg:w-[75vw] h-[80vh] flex-shrink-0 flex flex-col justify-center relative px-8 lg:px-24 mx-4 lg:mx-8 border-l-2 border-white/5 border-dashed group">
+            <div class="absolute top-1/2 -translate-y-1/2 -left-10 font-headline font-bold text-[40vw] text-white opacity-[0.02] mix-blend-overlay pointer-events-none tracking-tighter">04</div>
+            <div class="relative z-10 max-w-5xl">
+                <h3 class="text-cyan-500 tracking-widest text-sm uppercase mb-6 font-label flex items-center gap-4">
+                    <span class="w-12 h-px bg-cyan-500/50"></span> Plataformas Estruturadas
+                </h3>
+                <h2 class="font-headline font-bold text-5xl lg:text-8xl mb-8 text-white uppercase tracking-tighter leading-[0.9] group-hover:text-cyan-50 transition-colors animate-letters">Sistemas Web<br/>(SaaS/CRM)</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 items-start">
+                    <p class="font-body text-xl lg:text-2xl text-slate-400 leading-relaxed italic opacity-90 border-l border-cyan-500/30 pl-6">
+                        Arquiteturas isoladas, dashboards interativos e regras de negócio complexas encapsuladas em aplicações seguras para uso interno ou Venda de Software.
+                    </p>
+                    <div class="lg:pl-10">
+                        <h4 class="text-white text-xs font-label uppercase tracking-widest opacity-30 mb-6">__Stack_Utilizada</h4>
+                        <ul class="text-slate-300 font-label uppercase tracking-widest space-y-4 text-sm">
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_10px_#00F0FF]"></span> Node.js</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> React</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> Supabase / PostgreSQL</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> API RESTful</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 5 -->
+        <div class="w-[90vw] lg:w-[75vw] h-[80vh] flex-shrink-0 flex flex-col justify-center relative px-8 lg:px-24 mx-4 lg:mx-8 border-l-2 border-white/5 border-dashed group">
+            <div class="absolute top-1/2 -translate-y-1/2 -left-10 font-headline font-bold text-[40vw] text-white opacity-[0.02] mix-blend-overlay pointer-events-none tracking-tighter">05</div>
+            <div class="relative z-10 max-w-5xl">
+                <h3 class="text-cyan-500 tracking-widest text-sm uppercase mb-6 font-label flex items-center gap-4">
+                    <span class="w-12 h-px bg-cyan-500/50"></span> Mentoria Estratégica
+                </h3>
+                <h2 class="font-headline font-bold text-5xl lg:text-8xl mb-8 text-white uppercase tracking-tighter leading-[0.9] group-hover:text-cyan-50 transition-colors animate-letters">Consultoria<br/>em Tech</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 items-start">
+                    <p class="font-body text-xl lg:text-2xl text-slate-400 leading-relaxed italic opacity-90 border-l border-cyan-500/30 pl-6">
+                        Planejamento brutal de infra, escolha do stack ideal de mercado e acompanhamento tático para pivotar o crescimento tecnológico do seu negócio.
+                    </p>
+                    <div class="lg:pl-10">
+                        <h4 class="text-white text-xs font-label uppercase tracking-widest opacity-30 mb-6">__Stack_Utilizada</h4>
+                        <ul class="text-slate-300 font-label uppercase tracking-widest space-y-4 text-sm">
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_10px_#00F0FF]"></span> Arquitetura</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> Segurança</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> Cloud FinOps</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> Avaliação/Auditoria</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 6 -->
+        <div class="w-[90vw] lg:w-[75vw] h-[80vh] flex-shrink-0 flex flex-col justify-center relative px-8 lg:px-24 mx-4 lg:mx-8 border-l-2 border-white/5 border-dashed border-r-2 pr-8 lg:pr-24 group">
+            <div class="absolute top-1/2 -translate-y-1/2 -left-10 font-headline font-bold text-[40vw] text-white opacity-[0.02] mix-blend-overlay pointer-events-none tracking-tighter">06</div>
+            <div class="relative z-10 max-w-5xl">
+                <h3 class="text-cyan-500 tracking-widest text-sm uppercase mb-6 font-label flex items-center gap-4">
+                    <span class="w-12 h-px bg-cyan-500/50"></span> Ecossistema Pago
+                </h3>
+                <h2 class="font-headline font-bold text-5xl lg:text-8xl mb-8 text-white uppercase tracking-tighter leading-[0.9] group-hover:text-cyan-50 transition-colors animate-letters">Gestão de<br/>Mídia</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 items-start">
+                    <p class="font-body text-xl lg:text-2xl text-slate-400 leading-relaxed italic opacity-90 border-l border-cyan-500/30 pl-6">
+                        Análise de dados implacável e otimização cirúrgica. Levamos tráfego qualificado maximizando a conversão em todo o funil digital do seu negócio.
+                    </p>
+                    <div class="lg:pl-10">
+                        <h4 class="text-white text-xs font-label uppercase tracking-widest opacity-30 mb-6">__Stack_Utilizada</h4>
+                        <ul class="text-slate-300 font-label uppercase tracking-widest space-y-4 text-sm">
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_10px_#00F0FF]"></span> Meta Ads</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> Google Ads</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> Tráfego Pago</li>
+                            <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span> Planejamento e ROI</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- CTA Section -->
+<section id="contact" class="py-40 px-8 lg:px-20 text-center relative overflow-hidden">
+<div class="absolute inset-0 cyber-bg opacity-5 mix-blend-overlay"></div>
+<div class="relative z-10">
+<h2 class="font-headline font-bold text-6xl lg:text-8xl uppercase tracking-tighter mb-12">PRONTO PARA A <br/><span class="cyber-gradient-text">FORJA?</span></h2>
+<button class="bg-white text-black font-headline font-bold uppercase text-2xl px-16 py-6 tracking-tighter hover:bg-cyan-500 hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] transition-all duration-300 hover:scale-105 active:scale-95">
+                    INICIAR PROJETO
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#050505] w-full border-t border-white/5 pt-20 pb-10 flex flex-col items-center gap-8 px-10 w-full">
+<div class="w-full flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 max-w-7xl mx-auto mb-10">
+<div class="font-['Space_Grotesk'] font-bold text-cyan-500 text-3xl tracking-tighter uppercase">
+                RSOUSA TECH
+            </div>
+<div class="flex flex-wrap gap-8">
+<a class="font-['Inter'] text-sm tracking-wide text-neutral-600 hover:text-cyan-500 underline-offset-4 hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">GITHUB</a>
+<a class="font-['Inter'] text-sm tracking-wide text-neutral-600 hover:text-cyan-500 underline-offset-4 hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">LINKEDIN</a>
+<a class="font-['Inter'] text-sm tracking-wide text-neutral-600 hover:text-cyan-500 underline-offset-4 hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">SYSTEM_STATUS</a>
+<a class="font-['Inter'] text-sm tracking-wide text-neutral-600 hover:text-cyan-500 underline-offset-4 hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">PRIVACY_CORE</a>
+</div>
+</div>
+<div class="font-['Inter'] text-sm tracking-wide text-neutral-600 text-center uppercase tracking-[0.2em] opacity-50">
+            ©2024 RSOUSA TECH. FORGED IN PRECISION. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+<div id="project-modal" class="opacity-0 pointer-events-none fixed z-[1000] inset-0 bg-black/95 backdrop-blur-xl transition-all duration-500 overflow-y-auto">
+    <div class="w-11/12 max-w-[95vw] lg:max-w-7xl mx-auto my-10 lg:my-10 bg-surface-dim border border-outline-variant/30 p-0 rounded-2xl relative shadow-[0_0_50px_rgba(0,240,255,0.05)] translate-y-10 transition-all duration-500 delay-100 overflow-hidden" id="modal-container">
+        <button id="close-modal" class="absolute top-4 right-4 text-neutral-400 hover:text-cyan-400 transition-colors cursor-pointer material-symbols-outlined text-4xl z-50 bg-black/50 rounded-full p-2 backdrop-blur-sm">close</button>
+        <div id="modal-body" class="flex flex-col lg:flex-row min-h-[70vh]"></div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body></html>
