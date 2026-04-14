@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sites Premium em 48 Horas | Performance & SEO | RSousa Tech</title>
+    <meta name="description" content="Tenha um site de alta performance, otimizado para Google e 100% responsivo entregue em até 48 horas. Estruturas premium para quem quer vender mais.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rsousatech.com.br/sites-premium">
+    <meta property="og:title" content="Sites Premium em 48 Horas | RSousa Tech">
+    <meta property="og:description" content="Sites ultra-rápidos e otimizados com entrega garantida. Transforme sua presença digital agora.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#1E293B',
+                        accent: '#38BDF8',
+                        neon: '#818CF8',
+                        surface: '#020617',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- UI Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <style type="text/tailwindcss">
+        @layer base {
+            body { @apply bg-surface text-slate-200 antialiased overflow-x-hidden; }
+            h1, h2, h3 { @apply font-bold tracking-tight text-white; }
+        }
+
+        @layer components {
+            .glass { @apply backdrop-blur-xl bg-white/5 border border-white/10; }
+            .btn-primary { @apply px-8 py-4 bg-accent text-primary font-bold rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(56,189,248,0.3)]; }
+            .btn-outline { @apply px-8 py-4 border border-accent/30 text-accent font-bold rounded-full transition-all duration-300 hover:bg-accent/10; }
+            .magnetic-wrap { @apply relative inline-block; }
+            .noise-overlay {
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                pointer-events: none; opacity: 0.05; z-index: 9999;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            }
+        }
+
+        .sticky-card { @apply sticky top-32 mb-12 min-h-[400px] w-full max-w-5xl mx-auto rounded-3xl p-12 flex flex-col justify-center; }
+    </style>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Desenvolvimento de Sites Premium",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "RSousa Tech",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+        "telephone": "+5511980643921",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "São Paulo",
+          "addressCountry": "BR"
+        }
+      },
+      "description": "Desenvolvimento de sites rápidos, responsivos e otimizados para SEO em até 48 horas.",
+      "areaServed": "BR",
+      "offers": {
+        "@type": "Offer",
+        "description": "Sites OnePage e MultiPage dinâmicos e performáticos."
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <!-- Gradient Orbs -->
+    <div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent/20 blur-[120px] rounded-full pointer-events-none z-[-1]"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-neon/20 blur-[120px] rounded-full pointer-events-none z-[-1]"></div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 px-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center rotate-3 group-hover:rotate-12 transition-transform">
+                    <iconify-icon icon="lucide:zap" class="text-primary text-2xl"></iconify-icon>
+                </div>
+                <span class="text-xl font-bold tracking-tighter uppercase italic">RSousa<span class="text-accent underline decoration-2 underline-offset-4">Tech</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="#protocolo" class="hover:text-accent transition-colors">O Protocolo</a>
+                <a href="#modelos" class="hover:text-accent transition-colors">Modelos</a>
+                <a href="#faq" class="hover:text-accent transition-colors">Dúvidas</a>
+            </div>
+
+            <a href="https://wa.me/5511980643921" target="_blank" class="magnetic-wrap">
+                <button class="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-2 rounded-full text-sm font-bold hover:bg-white/20 transition-all">
+                    Começar Agora
+                </button>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden">
+            <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-widest animate-pulse">
+                        <iconify-icon icon="lucide:rocket"></iconify-icon>
+                        Entrega em 48 Horas Garantida
+                    </div>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight">
+                        Sites que <span class="bg-gradient-to-r from-accent via-neon to-accent bg-[length:200%_auto] bg-clip-text text-transparent animate-[gradient_3s_linear_infinite]">Vendem</span> <br>Enquanto Você Dorme.
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed">
+                        Design cinematográfico, performance 100/100 e SEO blindado. O primeiro passo para escalar seu faturamento digital começa aqui.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="https://wa.me/5511980643921" target="_blank" class="magnetic-wrap">
+                            <button class="btn-primary flex items-center gap-2">
+                                <iconify-icon icon="lucide:phone-call"></iconify-icon>
+                                Quero meu Site Agora
+                            </button>
+                        </a>
+                        <a href="#protocolo" class="magnetic-wrap">
+                            <button class="btn-outline">Ver Diferenciais</button>
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-6 pt-8 border-t border-white/10">
+                        <div class="flex -space-x-3">
+                            <img src="https://i.pravatar.cc/150?u=1" class="w-10 h-10 rounded-full border-2 border-surface" alt="User">
+                            <img src="https://i.pravatar.cc/150?u=2" class="w-10 h-10 rounded-full border-2 border-surface" alt="User">
+                            <img src="https://i.pravatar.cc/150?u=3" class="w-10 h-10 rounded-full border-2 border-surface" alt="User">
+                            <div class="w-10 h-10 rounded-full bg-secondary border-2 border-surface flex items-center justify-center text-[10px] font-bold">
+                                +50
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 font-medium">Empresas que já dominam o Google com a nossa estrutura.</p>
+                    </div>
+                </div>
+
+                <!-- Abstract Visual -->
+                <div class="relative lg:block hidden">
+                    <div class="relative w-full aspect-square rounded-[40px] overflow-hidden shadow-2xl skew-x-[-12deg] skew-y-[6deg] border border-white/10 group">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=1200" alt="Mockup de Site Premium" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-primary/80 to-transparent"></div>
+                        
+                        <!-- Floating KPI -->
+                        <div class="absolute top-10 left-10 glass p-6 rounded-2xl animate-bounce" style="animation-duration: 3s">
+                            <div class="text-accent text-3xl font-bold">100/100</div>
+                            <div class="text-[10px] uppercase tracking-widest font-bold opacity-60">Lighthouse Score</div>
+                        </div>
+
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-10 right-10 glass p-4 rounded-2xl flex items-center gap-3">
+                            <div class="w-10 h-10 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center">
+                                <iconify-icon icon="lucide:check-circle"></iconify-icon>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold uppercase">SEO Ativo</div>
+                                <div class="text-[10px] opacity-60">Fila de indexação OK</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Problem (Context) -->
+        <section class="py-32 px-4 bg-secondary/30 relative">
+            <div class="max-w-4xl mx-auto text-center space-y-6">
+                <h2 class="text-4xl md:text-5xl font-bold italic">Seu site atual está te fazendo <span class="text-red-500 line-through">perder dinheiro</span>.</h2>
+                <p class="text-lg text-slate-400 leading-relaxed">
+                    Velocidade de carregamento lenta, layout datado e falta de otimização para celular afastam seus clientes antes mesmo deles verem o que você oferece. Nós resolvemos isso na raiz.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 pt-12">
+                    <div class="p-8 rounded-3xl bg-white/5 border border-white/10 space-y-4">
+                        <iconify-icon icon="lucide:clock" class="text-3xl text-accent"></iconify-icon>
+                        <h3 class="text-xl font-bold">3 Segundos</h3>
+                        <p class="text-sm opacity-60">É o tempo máximo que um usuário espera seu site abrir.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-white/5 border border-white/10 space-y-4">
+                        <iconify-icon icon="lucide:search" class="text-3xl text-accent"></iconify-icon>
+                        <h3 class="text-xl font-bold">Invisível</h3>
+                        <p class="text-sm opacity-60">Sem SEO técnico, você nunca aparecerá na primeira página.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-white/5 border border-white/10 space-y-4">
+                        <iconify-icon icon="lucide:smartphone" class="text-3xl text-accent"></iconify-icon>
+                        <h3 class="text-xl font-bold">Não-Mobile</h3>
+                        <p class="text-sm opacity-60">Se seu site falha no celular, você perde 80% do tráfego.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- O Protocolo (Sticky Stack) -->
+        <section id="protocolo" class="py-32 px-4 relative">
+            <div class="max-w-7xl mx-auto mb-20">
+                <div class="text-center space-y-4">
+                    <span class="text-accent font-bold uppercase tracking-widest text-xs">O Diferencial RSousa Tech</span>
+                    <h2 class="text-5xl md:text-7xl font-bold">O Protocolo de Elite</h2>
+                </div>
+            </div>
+
+            <div class="protocol-container">
+                <!-- Card 1 -->
+                <div class="sticky-card bg-[#1E293B] border border-white/10 shadow-2xl group transition-all duration-500">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <div class="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center">
+                                <iconify-icon icon="lucide:zap" class="text-4xl text-accent"></iconify-icon>
+                            </div>
+                            <h3 class="text-4xl font-bold">Velocidade Extrema</h3>
+                            <p class="text-slate-400 text-lg leading-relaxed">
+                                Usamos o "Static-First Protocol". Sem bancos de dados pesados ou plugins que atrasam a página. Seu site carrega instantaneamente, garantindo a melhor experiência e retenção.
+                            </p>
+                            <ul class="space-y-3 text-sm font-medium">
+                                <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-accent"></iconify-icon> Lighthouse Score 100/100</li>
+                                <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-accent"></iconify-icon> Carregamento em menos de 1s</li>
+                                <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-accent"></iconify-icon> Otimização de imagens dinâmica</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-white/10 aspect-video md:aspect-square">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Velocidade Tecnológica">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="sticky-card bg-[#0F172A] border border-accent/20 shadow-2xl group transition-all duration-500">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <div class="w-16 h-16 bg-neon/20 rounded-2xl flex items-center justify-center">
+                                <iconify-icon icon="lucide:search" class="text-4xl text-neon"></iconify-icon>
+                            </div>
+                            <h3 class="text-4xl font-bold">SEO Blindado</h3>
+                            <p class="text-slate-400 text-lg leading-relaxed">
+                                Não basta ter um site bonito, ele precisa ser encontrado. Implementamos micro-dados JSON-LD, hierarquia de tags e sitemaps automatizados para que o Google te ame.
+                            </p>
+                            <ul class="space-y-3 text-sm font-medium">
+                                <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-neon"></iconify-icon> Schema Markup pronto</li>
+                                <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-neon"></iconify-icon> Semântica HTML5 Rigorosa</li>
+                                <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-neon"></iconify-icon> Amigável para Core Web Vitals</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-white/10 aspect-video md:aspect-square">
+                            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="SEO Rigoroso">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="sticky-card bg-[#020617] border border-white/10 shadow-2xl group transition-all duration-500">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center">
+                                <iconify-icon icon="lucide:layout" class="text-4xl text-white"></iconify-icon>
+                            </div>
+                            <h3 class="text-4xl font-bold">Design Cinematográfico</h3>
+                            <p class="text-slate-400 text-lg leading-relaxed">
+                                Criamos experiências imersivas. Tipografia monumental, motion design com GSAP e uma interface que transmite autoridade e luxo para sua marca.
+                            </p>
+                            <ul class="space-y-3 text-sm font-medium">
+                                <li class="flex items-center gap-2"><iconify-icon icon="lucide:check"></iconify-icon> Animações Fluidas (GSAP)</li>
+                                <li class="flex items-center gap-2"><iconify-icon icon="lucide:check"></iconify-icon> Responsividade Pixel-Perfect</li>
+                                <li class="flex items-center gap-2"><iconify-icon icon="lucide:check"></iconify-icon> Interface focada em conversão</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-white/10 aspect-video md:aspect-square">
+                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Design">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfólio Section -->
+        <section id="portfolio" class="py-32 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+                    <div class="space-y-4">
+                        <span class="text-accent font-bold uppercase tracking-widest text-xs">DNA Digital</span>
+                        <h2 class="text-5xl md:text-6xl font-bold italic">Portfólio de <br><span class="text-accent">Elite</span></h2>
+                    </div>
+                    <p class="text-slate-400 max-w-md text-sm leading-relaxed">
+                        Exemplos reais de projetos que entregamos com o selo de qualidade RSousa Tech. Cada site é uma obra única de performance e design.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Project 1 -->
+                    <a href="https://reaugusto.github.io/martiniguinchos/" target="_blank" class="group relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 glass transition-all duration-500 hover:-translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Martini Guinchos">
+                        <div class="absolute inset-x-0 bottom-0 p-8 pt-20 bg-gradient-to-t from-primary/90 to-transparent">
+                            <h4 class="text-lg font-bold">Martini Guinchos</h4>
+                            <p class="text-[10px] uppercase opacity-60 tracking-widest">Serviços de Guincho</p>
+                        </div>
+                    </a>
+                    <!-- Project 2 -->
+                    <a href="https://reaugusto.github.io/sobral/" target="_blank" class="group relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 glass transition-all duration-500 hover:-translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Sobral Advocacia">
+                        <div class="absolute inset-x-0 bottom-0 p-8 pt-20 bg-gradient-to-t from-primary/90 to-transparent">
+                            <h4 class="text-lg font-bold">Sobral Advocacia</h4>
+                            <p class="text-[10px] uppercase opacity-60 tracking-widest">Jurídico Premium</p>
+                        </div>
+                    </a>
+                    <!-- Project 3 -->
+                    <a href="https://reaugusto.github.io/cefgrupo/" target="_blank" class="group relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 glass transition-all duration-500 hover:-translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="CEF Grupo">
+                        <div class="absolute inset-x-0 bottom-0 p-8 pt-20 bg-gradient-to-t from-primary/90 to-transparent">
+                            <h4 class="text-lg font-bold">CEF Grupo</h4>
+                            <p class="text-[10px] uppercase opacity-60 tracking-widest">Serviços de Eletricista</p>
+                        </div>
+                    </a>
+                    <!-- Project 4 -->
+                    <a href="https://reaugusto.github.io/MarmorariaGramad/" target="_blank" class="group relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 glass transition-all duration-500 hover:-translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Marmoraria Gramad">
+                        <div class="absolute inset-x-0 bottom-0 p-8 pt-20 bg-gradient-to-t from-primary/90 to-transparent">
+                            <h4 class="text-lg font-bold">Marmoraria Gramad</h4>
+                            <p class="text-[10px] uppercase opacity-60 tracking-widest">Arquitetura & Design</p>
+                        </div>
+                    </a>
+                    <!-- Project 5 -->
+                    <a href="https://reaugusto.github.io/oftalmovet/" target="_blank" class="group relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 glass transition-all duration-500 hover:-translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Oftalmovet">
+                        <div class="absolute inset-x-0 bottom-0 p-8 pt-20 bg-gradient-to-t from-primary/90 to-transparent">
+                            <h4 class="text-lg font-bold">Oftalmovet</h4>
+                            <p class="text-[10px] uppercase opacity-60 tracking-widest">Clínica Veterinária</p>
+                        </div>
+                    </a>
+                    <!-- Project 6 -->
+                    <a href="https://ruasguinchos.com.br/" target="_blank" class="group relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 glass transition-all duration-500 hover:-translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Ruas Guinchos">
+                        <div class="absolute inset-x-0 bottom-0 p-8 pt-20 bg-gradient-to-t from-primary/90 to-transparent">
+                            <h4 class="text-lg font-bold">Ruas Guinchos</h4>
+                            <p class="text-[10px] uppercase opacity-60 tracking-widest">Assistência 24h</p>
+                        </div>
+                    </a>
+                    <!-- Project 7 -->
+                    <a href="https://reaugusto.github.io/rmguinchos" target="_blank" class="group relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 glass transition-all duration-500 hover:-translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="RM Guinchos">
+                        <div class="absolute inset-x-0 bottom-0 p-8 pt-20 bg-gradient-to-t from-primary/90 to-transparent">
+                            <h4 class="text-lg font-bold">RM Guinchos</h4>
+                            <p class="text-[10px] uppercase opacity-60 tracking-widest">Guincho e Reboque</p>
+                        </div>
+                    </a>
+                    <!-- Project 8 -->
+                    <a href="https://reaugusto.github.io/Eduardo-Dudu-Zeca/" target="_blank" class="group relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 glass transition-all duration-500 hover:-translate-y-2">
+                        <img src="https://reaugusto.github.io/Eduardo-Dudu-Zeca/assets-dudu/unnamed%20(1).jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Eduardo Zeca">
+                        <div class="absolute inset-x-0 bottom-0 p-8 pt-20 bg-gradient-to-t from-primary/90 to-transparent">
+                            <h4 class="text-lg font-bold">Eduardo Zeca</h4>
+                            <p class="text-[10px] uppercase opacity-60 tracking-widest">Serviços de Guincho</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Tiers (Pricing) -->
+        <section id="modelos" class="py-32 px-4 bg-secondary/20">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center space-y-4 mb-20">
+                    <h2 class="text-5xl font-bold">Escolha seu Poderio Digital</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">Soluções flexíveis para o momento atual do seu negócio. Preços promocionais com <strong>hospedagem e domínio inclusos (1 ano)</strong> como brinde.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Basic Tier -->
+                    <div class="p-12 rounded-[40px] bg-white/5 border border-white/10 space-y-8 hover:border-accent/40 transition-all duration-500 group">
+                        <div class="space-y-2">
+                            <div class="text-accent font-bold uppercase tracking-widest text-xs">Landing Page</div>
+                            <h3 class="text-3xl font-bold">Elite OnePage</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed">Ideal para lançamento de produtos, tráfego pago e captação rápida de leads.</p>
+                        </div>
+                        <div class="text-5xl font-bold">R$ 597<span class="text-lg opacity-40 font-normal"> /único</span></div>
+                        <div class="bg-accent/10 p-3 rounded-xl border border-accent/20 text-xs text-accent font-bold text-center">Entrega em até 48 Horas</div>
+                        <ul class="space-y-4 pt-6 border-t border-white/10 grow">
+                            <li class="flex items-center gap-3 text-sm font-medium"><iconify-icon icon="lucide:gift" class="text-accent"></iconify-icon> Hospedagem + Domínio Grátis</li>
+                            <li class="flex items-center gap-3 text-sm font-medium"><iconify-icon icon="lucide:check" class="text-accent"></iconify-icon> Design Estático Alta Performance</li>
+                            <li class="flex items-center gap-3 text-sm font-medium"><iconify-icon icon="lucide:check" class="text-accent"></iconify-icon> Seção de FAQ e Depoimentos</li>
+                            <li class="flex items-center gap-3 text-sm font-medium"><iconify-icon icon="lucide:check" class="text-accent"></iconify-icon> Botão WhatsApp Pulsante</li>
+                        </ul>
+                        <a href="https://wa.me/5511980643921?text=Quero%20o%20modelo%20Elite%20OnePage%20por%20R$597" target="_blank" class="block">
+                            <button class="w-full py-4 rounded-2xl bg-white/10 font-bold group-hover:bg-accent group-hover:text-primary transition-all">Começar Agora</button>
+                        </a>
+                    </div>
+
+                    <!-- Pro Tier -->
+                    <div class="p-12 rounded-[40px] bg-accent/5 border border-accent/20 space-y-8 relative overflow-hidden group">
+                        <div class="absolute top-6 right-6 px-3 py-1 bg-accent text-primary text-[10px] font-bold rounded-full uppercase tracking-tighter shadow-lg">Mais Vendido</div>
+                        <div class="space-y-2">
+                            <div class="text-neon font-bold uppercase tracking-widest text-xs">Site Institucional</div>
+                            <h3 class="text-3xl font-bold">Protocol MultiPage</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed">Até 20 páginas com estrutura completa de SEO para dominar buscas orgânicas.</p>
+                        </div>
+                        <div class="text-5xl font-bold">R$ 897<span class="text-lg opacity-40 font-normal"> /único</span></div>
+                        <div class="bg-accent/10 p-3 rounded-xl border border-accent/20 text-xs text-accent font-bold text-center">Entrega em até 48 Horas</div>
+                        <ul class="space-y-4 pt-6 border-t border-white/10 grow">
+                            <li class="flex items-center gap-3 text-sm font-medium"><iconify-icon icon="lucide:gift" class="text-accent"></iconify-icon> Hospedagem + Domínio Grátis</li>
+                            <li class="flex items-center gap-3 text-sm font-medium"><iconify-icon icon="lucide:check" class="text-accent"></iconify-icon> Conteúdo para até 20 páginas</li>
+                            <li class="flex items-center gap-3 text-sm font-medium"><iconify-icon icon="lucide:check" class="text-accent"></iconify-icon> Indexação Automatizada p/ Google</li>
+                            <li class="flex items-center gap-3 text-sm font-medium"><iconify-icon icon="lucide:check" class="text-accent"></iconify-icon> Estrutura Corporativa Completa</li>
+                        </ul>
+                        <a href="https://wa.me/5511980643921?text=Quero%20o%20modelo%20Protocol%20MultiPage%20por%20R$897" target="_blank" class="block">
+                            <button class="w-full py-4 rounded-2xl bg-accent text-primary font-bold shadow-[0_0_30px_rgba(56,189,248,0.2)]">Começar Agora</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-32 px-4 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto glass p-16 md:p-24 rounded-[60px] text-center space-y-12 relative">
+                <div class="absolute -top-12 -left-12 w-24 h-24 bg-accent/30 blur-3xl"></div>
+                <div class="absolute -bottom-12 -right-12 w-24 h-24 bg-neon/30 blur-3xl"></div>
+                
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tight">O sucesso não gosta de <br><span class="text-accent">lentidão</span>.</h2>
+                <p class="text-xl text-slate-400">Você está a uma conversa de ter o site que sua empresa merece.</p>
+                
+                <div class="flex flex-col items-center gap-6">
+                    <a href="https://wa.me/5511980643921" target="_blank" class="magnetic-wrap">
+                        <button class="btn-primary text-2xl flex items-center gap-4 px-12 py-6">
+                            <iconify-icon icon="logos:whatsapp-icon" class="text-3xl"></iconify-icon>
+                            Falar com Especialista
+                        </button>
+                    </a>
+                    <p class="text-sm font-bold text-slate-500 uppercase tracking-widest">Atendimento Nacional • Vagas Limitadas por Mês</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 px-4 border-t border-white/5 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-bold tracking-tighter uppercase italic">RSousa<span class="text-accent">Tech</span></div>
+            <p>&copy; 2026 RSousa Tech. Todos os direitos reservados. Performance Protocol.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-accent transition-colors">Politica de Privacidade</a>
+                <a href="#" class="hover:text-accent transition-colors">Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize GSAP & ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Navbar Interaction
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('glass', 'py-4');
+                nav.classList.remove('py-6');
+            } else {
+                nav.classList.remove('glass', 'py-4');
+                nav.classList.add('py-6');
+            }
+        });
+
+        // Magnetic Effect
+        const magneticElements = document.querySelectorAll('.magnetic-wrap');
+        magneticElements.forEach(wrap => {
+            wrap.addEventListener('mousemove', (e) => {
+                const rect = wrap.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(wrap.querySelector('button'), {
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    duration: 0.6,
+                    ease: "power2.out"
+                });
+            });
+            wrap.addEventListener('mouseleave', () => {
+                gsap.to(wrap.querySelector('button'), {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        });
+
+        // GSAP Animations
+        gsap.from('h1', {
+            y: 50,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power4.out"
+        });
+
+        gsap.from('p', {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: "power3.out"
+        });
+
+        // Sticky Cards Interaction (The Protocol)
+        const cards = gsap.utils.toArray('.sticky-card');
+        cards.forEach((card, i) => {
+            if(i !== cards.length - 1) {
+                gsap.to(card, {
+                    scale: 0.95 - (i * 0.02),
+                    filter: "blur(2px)",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 100px",
+                        endTrigger: ".protocol-container",
+                        end: "bottom 80%",
+                        scrub: true,
+                    }
+                });
+            }
+        });
+
+        // Scroll Reveal for sections
+        const reveals = gsap.utils.toArray('section:not(.relative)');
+        reveals.forEach(sec => {
+            gsap.from(sec, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: sec,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+    </script>
+</body>
+</html>
